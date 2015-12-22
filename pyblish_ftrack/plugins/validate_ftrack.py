@@ -63,7 +63,8 @@ class ValidateFtrack(pyblish.api.Validator):
                     asset = a
                     create_asset = False
                 assert asset, msg
-                self.log.info('Found existing asset by default.')
+                self.log.info('Found existing asset by default. {}'.format(asset))
+
             elif len(assets) > 1:
                 asset_name = ftrack_data['Task']['type']
                 for a in assets:
@@ -73,6 +74,7 @@ class ValidateFtrack(pyblish.api.Validator):
                     create_asset = False
                 assert asset, msg
                 self.log.info('Found existing asset by default.')
+                self.log.info('Found existing asset by default. {}'.format(asset))
             else:
                 self.log.info('No asset found, new one will be created.')
 
