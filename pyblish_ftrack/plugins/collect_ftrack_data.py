@@ -102,7 +102,7 @@ class CollectFtrackData(pyblish.api.Selector):
             elif objectType == 'Project':
                 tempdic['code'] = tempdic['name']
                 tempdic['name'] = ancestor.get('fullname')
-                tempdic['root'] = ancestor.getRoot(),
+                tempdic['root'] = ancestor.getRoot()
 
             data[objectType] = tempdic
 
