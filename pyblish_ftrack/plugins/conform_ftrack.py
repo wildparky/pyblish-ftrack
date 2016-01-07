@@ -10,6 +10,7 @@ class ConformFtrack(pyblish.api.Conformer):
 
     order = pyblish.api.Conformer.order + 0.11
     label = 'Ftrack'
+    optional = True
 
     def process(self, instance):
 
