@@ -12,10 +12,10 @@ class ValidateFtrack(pyblish.api.Validator):
     optional = True
     label = 'Ftrack'
 
-    def process(self, instance, context):
+    def process(self, instance):
 
         # skipping instance if ftrackData isn't present
-        if not context.has_data('ftrackData'):
+        if not instance.context.has_data('ftrackData'):
             self.log.info('No ftrackData present. Skipping this instance')
             return
 
@@ -25,7 +25,7 @@ class ValidateFtrack(pyblish.api.Validator):
                            Skipping this instance')
             return
 
-        ftrack_data = context.data('ftrackData').copy()
+        ftrack_data = instance.context.data('ftrackData').copy()
         task = ftrack.Task(ftrack_data['Task']['id'])
 
         # checking asset
@@ -92,10 +92,10 @@ class ValidateFtrack(pyblish.api.Validator):
             return
 
         # checking version
-        msg = 'Missing version in context.'
-        assert context.has_data('version'), msg
+        msg = 'Missing version in instance.context.'
+        assert instance.context.has_data('version'), msg
 
-        version_number = int(context.data('version'))
+        version_number = int(instance.context.data('version'))
         create_version = True
         version = None
 
