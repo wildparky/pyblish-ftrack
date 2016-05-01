@@ -8,6 +8,7 @@ Pyblish for FTrack
 
 To succesfully publish an instance to ftrack using this extension you need to append a few data members to the instance you want to publish.
 성공적으로 instance을 ftrack에 퍼블리싱하기위해 이걸 사용하기 위해 퍼블리싱하길 원하는 instance에 몇몇 데이터 멤버가 필요하다. 
+
 **Required data:**
 
 - ftrackComponents - Dictionary of dictionaries where each key is a component name (Instance data)
